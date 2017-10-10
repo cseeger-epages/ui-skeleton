@@ -70,5 +70,12 @@ func init() {
 			"javascript",
 			StaticHandler,
 		},
+		Route{
+			"Index",
+			"GET",
+			"/videos/{id}",
+			"videos",
+			StaticHandler,
+		},
 	}
 }

@@ -63,7 +63,17 @@ func GetTemplateData(path string) (string, error) {
 }
 
 // set content from file
-func SetTemplateContent() Template {
+func SetTemplateContent(r *http.Request) Template {
+
+	// active link
+	for k, v := range TmplConf.Navs {
+		if v.Link == r.URL.Path[1:] {
+			TmplConf.Navs[k].Active = true
+		} else {
+			TmplConf.Navs[k].Active = false
+		}
+	}
+
 	content := Template{
 		TmplConf.General.Title,
 		TmplConf.General.Branding,

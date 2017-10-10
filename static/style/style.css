@@ -1,0 +1,47 @@
+.navbar {
+  background-color: #3fb0ac;
+  padding: 0 2rem;
+}
+
+.nav-link {
+  color: #dddfd4 !important;
+  font-weight: bold;
+  padding: 1em 0;
+}
+
+.nav-item {
+  padding: 0 .8em;
+}
+
+.navbar-brand {
+  color: #dddfd4 !important;
+  font-weight: bold;
+}
+
+.nav-item:hover, .active {
+  background-color: #173e43;
+  -webkit-transition: background-color 500ms linear;
+  -ms-transition: background-color 500ms linear;
+  transition: background-color 500ms linear;
+}
+
+body > .container {
+  padding-top: 60px;
+}
+
+body {
+  background-color: #dddfd4;
+}
+
+footer {
+  background-color: #3fb0ac;
+}
+
+footer .text-muted {
+  color: #dddfd4 !important;
+  font-weight: bold;
+}
+
+footer .container {
+  padding: .5rem;
+}

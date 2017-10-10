@@ -9,7 +9,7 @@ import (
 )
 
 func IndexRedirect(w http.ResponseWriter, r *http.Request) {
-	DebugMsg("Index Redirect not implemented yet")
+	http.Redirect(w, r, r.URL.Path+"index", 301)
 }
 
 func StaticHandler(w http.ResponseWriter, r *http.Request) {
@@ -50,7 +50,7 @@ func Index(w http.ResponseWriter, r *http.Request) {
 	if err == nil {
 		contentType := SetHeaders(w, string(path))
 		if contentType == "text/html" {
-			content := SetTemplateContent()
+			content := SetTemplateContent(r)
 			tmpl, err := template.New("tmpl").Parse(data)
 			if err != nil {
 				Error("error while creating template", err)
