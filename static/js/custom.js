@@ -48,6 +48,10 @@ function GetProjects() {
         $('#showcase-projects').append("<tr><th>"+val["id"]+"</th><td>"+val["name"]+"</td></tr>")
 
       })
+    },
+    error: function(data){
+      $('#showcase-errors').empty()
+      $('#showcase-errors').append("<div class='alert alert-danger' role='alert'><strong>api endpoint: " + api + " not available</strong></div>")
     }
   });
 }
