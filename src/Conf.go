@@ -107,9 +107,16 @@ type tmplGeneral struct {
 }
 
 type nav struct {
-	Link   string
-	Text   string
-	Active bool
+	Link     string
+	Text     string
+	Active   bool
+	Dropdown bool
+	Menu     []link
+}
+
+type link struct {
+	Link string
+	Text string
 }
 
 func ParseConfig(fileName string, conf interface{}) error {

@@ -8,9 +8,22 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           {{ range .Nav }}
-          <li class="nav-item {{ if .Active }} active {{ end }}">
-            <a class="nav-link" href="{{ .Link }}">{{ .Text }} <span class="sr-only">(current)</span></a>
-          </li>
+            {{ if .Dropdown }}
+              <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="{{ .Link }}" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {{ .Text }}
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              {{ range .Menu }}
+              <a class="dropdown-item" href="{{ .Link }}">{{ .Text }}</a>
+              {{ end }}
+              </div>
+              </li>
+            {{ else }}
+            <li class="nav-item {{ if .Active }} active {{ end }}">
+              <a class="nav-link" href="{{ .Link }}">{{ .Text }} <span class="sr-only">(current)</span></a>
+            </li>
+            {{ end}}
           {{ end }}
         </ul>
       </div>
