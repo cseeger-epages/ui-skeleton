@@ -1,27 +1,13 @@
 package main
 
 import (
-	"bufio"
 	"html/template"
 	"net/http"
-	"os"
 	"strings"
 )
 
 func IndexRedirect(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, r.URL.Path+"index", 301)
-}
-
-func StaticHandler(w http.ResponseWriter, r *http.Request) {
-	path := Conf.Templates.StaticDir + r.URL.Path
-
-	f, err := os.Open(path)
-	if err != nil {
-		ErrorHtml(w)
-	}
-	SetHeaders(w, string(path))
-	bufferedReader := bufio.NewReader(f)
-	bufferedReader.WriteTo(w)
 }
 
 func Index(w http.ResponseWriter, r *http.Request) {

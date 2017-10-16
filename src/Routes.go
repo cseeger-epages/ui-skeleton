@@ -56,26 +56,5 @@ func init() {
 			"default page",
 			Index,
 		},
-		Route{
-			"Index",
-			"GET",
-			"/style/{id}",
-			"css",
-			StaticHandler,
-		},
-		Route{
-			"Index",
-			"GET",
-			"/js/{id}",
-			"javascript",
-			StaticHandler,
-		},
-		Route{
-			"Index",
-			"GET",
-			"/videos/{id}",
-			"videos",
-			StaticHandler,
-		},
 	}
 }

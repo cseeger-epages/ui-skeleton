@@ -26,6 +26,7 @@ package main
 
 import (
 	"flag"
+	"net/http"
 	"os"
 )
 
@@ -57,6 +58,7 @@ func init() {
 
 func main() {
 	router := NewRouter()
+	router.PathPrefix("/").Handler(http.FileServer(http.Dir(Conf.Templates.StaticDir + "/")))
 
 	s, l, err := CreateServerAndListener(router, Conf.General.Listen, Conf.General.Port)
 	if err != nil {
